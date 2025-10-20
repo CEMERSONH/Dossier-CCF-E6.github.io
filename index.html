@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dossier CCF E6 — Administrateur Réseau</title>
+  <link rel="stylesheet" href="CEMH_E6.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">E6</div>
+        <div>
+          <h1>Dossier CCF E6 — Administrateur Réseau</h1>
+          <p class="lead">Conception et déploiement d'une infrastructure réseau sécurisée multi-VLAN</p>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="pill">Candidat : <span id="cand">HORACE CEMERSON</span></div>
+        <div class="pill">Etablissement : <span id="school">LES PERSEVERANTS</span></div>
+        <div class="pill">Session : <span id="session">2025/2026</span></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="section-title">
+          <h2>1. Annexe 9-1-A — Fiche descriptive</h2>
+          <div class="small muted">HORACE cemerson</div>    
+        </div>
+        <div style="margin-top:12px">
+          <dl>
+            <dt>Nom du projet</dt><dd>Conception et déploiement d’une infrastructure réseau sécurisée </dd>
+            <dt>Contexte</dt><dd>Mise en œuvre d'une infrastructure réseau complète pour une Entreprise (segmentation, serveurs, sécurité)</dd>
+            <dt>Période</dt><dd>Septembre 2025 — Juin 2026</dd>
+            <dt>Rôles</dt><dd>Administrateur réseau — conception, déploiement, sécurisation et supervision</dd>
+            <dt>Outils</dt><dd>Windows Server 2022, Debian, Stormshield, Excel, Synology, Zabbix, GLPI</dd>
+          </dl>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title"><h2>2. Contexte professionnel</h2><div class="small muted">HORACE cemerson</div></div>
+        <p style="margin-top:10px">
+          <strong>Entreprise :</strong> <span id="company">CYBER CEMH SARL</span>. L'entreprise dispose d'environ 50 postes et souhaite moderniser son infrastructure réseau.
+          Le projet vise à segmenter le réseau via VLAN, centraliser l'authentification, déployer des services assurer la supervision et mettre en place un plan de sauvegarde en.
+        </p>
+      </section>
+
+      <div class="grid">
+        <div>
+          <section class="card">
+            <div class="section-title"><h2>3. Schéma et plan d'adressage</h2><div class="small muted">HORACE cemerson</div></div>
+            <p class="section-sub">.</p>
+            <div class="img-placeholder" id="schemaPlaceholder">
+                <img
+                src="E6.png"
+                alt="texte alternatif"
+                width="100%"
+                height="100%"
+              /></div>
+
+            <h3 style="margin-top:14px">Plan d'adressage & VLAN</h3>
+            <table>
+              <thead><tr><th>VLAN</th><th>Description</th><th>Réseau</th><th>Exemple d'adresse</th></tr></thead>
+              <tbody>
+                <tr><td>20/200</td><td>Postes utilisateurs (PC_USER)</td><td>192.168.3.0/24</td><td>PC01 — 192.168.3.10</td></tr>
+                <tr><td>200</td><td>Serveurs</td><td>172.16.3.0/24</td><td>AD — 172.16.3.222</td></tr>
+                <tr><td>202</td><td>Sauvegarde</td><td>172.16.2.0/24</td><td>Backup — 172.16.2.200</td></tr>
+                <tr><td>205</td><td>NAS</td><td>172.16.5.0/24</td><td>NAS — 172.16.5.254</td></tr>
+              </tbody>
+            </table>
+
+            <h4 style="margin-top:12px">Liste des serveurs (extraits)</h4>
+            <table>
+              <thead><tr><th>Nom</th><th>IP</th><th>OS / Service</th></tr></thead>
+              <tbody>
+                <tr><td>AD Server</td><td>172.16.3.222</td><td>Windows Server 2022 — Active Directory, DNS</td></tr>
+                <tr><td>GLPI</td><td>172.16.3.220</td><td>Debian 10 — GLPI + MariaDB</td></tr>  
+                <tr><td>NAS Synology</td><td>172.16.5.254</td><td> Stockage & sauvegardes</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="card">
+            <div class="section-title"><h2>4. Description matérielle et logicielle</h2><div class="small muted">HORACE cemerson</div></div>
+            <p class="small" style="margin-top:8px">Matériel :</p>
+            <ul>
+              <li>Commutateurs empilables (Core / Farm / Access)</li>
+              <li>Pare-feu Stormshield</li>
+              <li>NAS Synology</li>
+            </ul>
+            <p class="small">Logiciels :</p>
+            <ul>
+              <li>Windows Server 2022 (AD, DNS, DHCP)</li>
+              <li>Debian 12 ( GLPI, Zabbix, Asterisk)</li>
+              <li>Zabbix, GLPI </li>
+            </ul>
+          </section>
+
+        </div>
+
+        <aside>
+          <section class="card">
+            <h3>Procédures clés</h3>
+            <ol class="small">
+              <li>Configurer VLANs sur Core Switch et trunks (Core↔Farm↔Access)</li>
+              <li>Configurer Stormshield : interfaces VLAN, règles inter-VLAN, NAT, VPN</li>
+              <li>Installer AD DS sur Windows Server et promouvoir le contrôleur de domaine</li>
+              <li>Déployer les serveurs applicatifs et agents Zabbix</li>
+              <li>Configurer sauvegardes  → NAS</li>
+            </ol>
+          </section>
+
+          <section class="card">
+            <h3>Tests & validations</h3>
+            <table>
+              <thead><tr><th>Test</th><th>Objectif</th><th>Résultat</th></tr></thead>
+              <tbody>
+                <tr><td>Ping inter-VLAN</td><td>Vérifier routage</td><td>✅</td></tr>
+                <tr><td>AD</td><td>Connexion domaine</td><td>✅</td></tr>
+                <tr><td>Backup </td><td>Copie vers backup</td><td></td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="card">
+            <h3>Ressources & liens</h3>
+            <p class="small">Dépôt : <a href="https://drive.google.com/file/d/1Fqia8cpmSqV4mtu633YjctX20Y4Pv97-/view?usp=sharing"> Schéma et plan d'adressage</a></p>
+            <p class="small">Captures :<a href="CEMH-CAP.html">Mes Captures d'Écran</a> </p>
+            <p class="small">:</p>
+          </section>
+        </aside>
+      </div>
+
+      <section class="card">
+        <div class="section-title"><h2>5. Documentation technique détaillée</h2><div class="small muted">Procédures, scripts et extraits</div></div>
+
+        <h4 style="margin-top:10px">Extrait : script PowerShell de création d'utilisateurs</h4>
+        <pre class="code"># Exemple : Create-ADUsers.ps1
+Import-Module ActiveDirectory
+$users = Import-Csv users.csv
+foreach($u in $users){
+  New-ADUser -Name $u.Name -GivenName $u.Given -Surname $u.Surname -SamAccountName $u.Username -AccountPassword (ConvertTo-SecureString $u.Password -AsPlainText -Force) -Enabled $true
+}
+</pre>
+
+        <h4 style="margin-top:12px">:</h4>
+</pre>
+
+      </section>
+
+      <footer>
+        <div class="small muted">HORACE cemerson</div>
+        <div>
+          <a class="btn" href="#" id="printBtn">Télécharger en PDF</a>
+          <a class="btn-outline" href="#" id="editMeta">Modifier </a>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    // print to PDF
+    document.getElementById('printBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      window.print();
+    });
+
+    // edit metadata quick modal (prompt)
+    document.getElementById('editMeta').addEventListener('click', function(e){
+      e.preventDefault();
+      const cand = prompt('Nom du candidat (Prénom NOM):', document.getElementById('cand').innerText);
+      if(cand) document.getElementById('cand').innerText = cand;
+      const school = prompt('Établissement:', document.getElementById('school').innerText);
+      if(school) document.getElementById('school').innerText = school;
+      const session = prompt('Session:', document.getElementById('session').innerText);
+      if(session) document.getElementById('session').innerText = session;
+      const company = prompt('Nom de l\\'entreprise:', document.getElementById('company').innerText);
+      if(company) document.getElementById('company').innerText = company;
+    });
+
+    // drag-and-drop image into placeholder
+    const placeholder = document.getElementById('schemaPlaceholder');
+    placeholder.addEventListener('dragover', e => { e.preventDefault(); placeholder.style.borderColor='#9ca3af'; });
+    placeholder.addEventListener('dragleave', e => { placeholder.style.borderColor='#d1d5db'; });
+    placeholder.addEventListener('drop', e => {
+      e.preventDefault();
+      const file = e.dataTransfer.files[0];
+      if(!file) return;
+      const img = document.createElement('img');
+      img.style.maxWidth = '100%'; img.style.borderRadius='6px';
+      const reader = new FileReader();
+      reader.onload = function(ev){ placeholder.innerHTML = ''; img.src = ev.target.result; placeholder.appendChild(img); };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
